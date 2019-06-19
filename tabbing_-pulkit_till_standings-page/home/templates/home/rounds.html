@@ -1,0 +1,16 @@
+{% extends 'home/base.html' %}
+
+{% block title %}Rounds{% endblock %}
+
+{% block body %}
+<h1><center>This is the Rounds Page</center></h1>
+<h2><center><a href="{% url 'home:add-rounds' pk=tournament_id %}">Add Rounds</a></center></h2>
+<ul>
+    {% for round in all_rounds %}
+    <li><h1>{{ round.name }}</h1>
+    <li><h3>Motion : {{ round.motion }}</h3></li>
+    <li><h3>Number of Teams : {{ round.number_of_teams }}</h3></li>
+    <li><h3>Number of Rooms : {{ round.number_of_rooms }}</h3></li>
+    {% endfor %}
+</ul>
+{% endblock %}
