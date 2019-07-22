@@ -1,0 +1,23 @@
+{% extends 'home/base.html' %}
+
+{% block title %}Team Standings{% endblock %}
+
+{% block body %}<center>
+    <br><br>
+<table id="teams">
+    <tr>
+        <th><center>Team Name</center></th>
+        <th><center>Team Score</center></th>
+    </tr>
+    {% for team in all_teams %}
+    <tr>
+        <td><center><b>{{ team.team_name }}</b></center></td>
+        <td><center><b>{{ team.score }}</b></center></td>
+    </tr>
+    {% endfor %}
+</table></center>
+{% endblock %}
+
+
+
+

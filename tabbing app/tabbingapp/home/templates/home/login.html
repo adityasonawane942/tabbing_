@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    {% load staticfiles %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style.css' %}"/>
+    <link href='https://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Calligraffitti' rel='stylesheet'>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+    <style>
+        .button1:hover {
+          box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+    </style>
+</head>
+
+{% block content %}
+<br><br>
+<center><div style="background-color: white; width: 200px; height: 60px;"><h1 style="font-family: 'Audiowide'; font-weight: bold; color: brown;"><big><center>LOGIN</center></big></h1></div></center>
+<br>
+<div class="container-fluid">
+         <div class="row">
+             <div class="col-sm-11 col-md-7">
+                <div class="panel" style="background-color:rgb(114, 0, 0); border-radius: 30px; width: 500px; position: absolute; left: 525px;">
+                    <div class="panel-body" style="background-color:rgb(114, 0, 0); border-radius: 25px; width: 500px;">
+                        <form class="site-form" action="{% url 'home:login' %}" method="post">
+                            {% csrf_token %}
+                            <br>
+                            {% for field in form %}
+                                <div class="form-group">
+                                    <div>
+                                        <span class="text-danger small">{{ field.errors }}</span>
+                                    </div>
+                                    <div>
+                                        <label class="control-label" style="color: Yellow; font-family: 'Calligraffitti'; font-size: 22px; position: relative; left: 210px;"><b>{{ field.label_tag }}</b></label>
+                                        <div style="position: relative; left: 160px;">{{ field }}</div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                            {% if request.GET.next %}
+                                <input class="" type="hidden" name="next" value="{{ request.GET.next }}">
+                            {% endif %}
+                            <br>
+                            <center><button class="btn btn-success btn-lg button1" style="font-family: 'Calligraffitti'; font-weight: bold; padding: 10px 100px;" type="submit">Login <i class="fas fa-sign-in-alt"></i></button></center><br>
+                        </form>
+                    </div>
+                </div>
+             </div>
+         </div>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <form class="site-form" action="{% url 'home:signup' %}">
+        {% csrf_token %}
+        <center><div style="background-color: white; width: 400px;"><h1 style="font-family: 'Audiowide'; font-weight: bold; color: brown;"><big><center><b>NEW USER ??</b></center></big></h1></div></center>
+        <br>
+        <center><button class="btn btn-primary btn-lg button1" style="font-family: 'Calligraffitti'; font-weight: bold; padding: 10px 100px;" type="submit">Register Now <i class="far fa-smile"></i></button></center>
+    </form>
+
+{% endblock %}

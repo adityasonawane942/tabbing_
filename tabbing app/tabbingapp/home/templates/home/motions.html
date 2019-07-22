@@ -1,0 +1,20 @@
+{% extends 'home/base.html' %}
+
+{% block title %}Motions{% endblock %}
+
+{% block body %}
+    <center><br><br>
+        <table id="teams">
+            <tr>
+                <th><center>Round Name</center></th>
+                <th><center>Motion</center></th>
+            </tr>
+            {% for round in all_rounds %}
+            <tr>
+                <td><center><b>{{ round.name }}</b></center></td>
+                <td><center><b>{{ round.motion }}</b></center></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </center>
+{% endblock %}

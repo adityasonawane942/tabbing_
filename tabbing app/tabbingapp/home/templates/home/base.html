@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome Page{% endblock %}</title>
+    {% load staticfiles %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style.css' %}"/>
+    <link href='https://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet'>
+	<link href='https://fonts.googleapis.com/css?family=Calligraffitti' rel='stylesheet'>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+    <style>
+    	.button1 {
+    		 font-family: 'Audiowide';
+    	}
+        .button1:hover {
+          box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+
+        .dropdown {
+		  position: relative;
+		  display: inline-block;
+		}
+        .dropdown-content {
+        	  display: none;
+        	  position: absolute;
+			  background-color: #f9f9f9;
+			  width: 200px;
+			  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+			  z-index: 1;
+			  border-radius: 20px;
+		}
+
+		.dropdown-content a {
+			  color: black;
+			  padding: 12px 16px;
+			  text-decoration: none;
+			  display: block;
+			  border-radius: 20px;
+			  font-family: 'Audiowide';
+			  font-color: white;
+		}
+
+		.dropdown-content a:hover {background-color: LightGreen;}
+		.dropdown:hover .dropdown-content {
+		  display: block;
+		}
+		#teams {
+		  font-family: 'Calligraffitti';
+		  border-collapse: collapse;
+		  width: 800px;
+		}
+
+		#teams td, #teams th {
+		  padding: 8px;
+		  font-size: 20px;
+		}
+
+		#teams tr:nth-child(even){background-color: #f2f2f2;}
+
+		#teams tr:hover {background-color: LightBlue;}
+
+		#teams th {
+		  padding-top: 12px;
+		  padding-bottom: 12px;
+		  text-align: left;
+		  background-color: rgb(59, 0, 81);
+		  color: white;
+		  font-size: 30px;
+		}
+ 	</style>
+</head>
+
+<body>
+   <nav class="navbar navbar-expand-sm bg-info navbar-dark">
+         <ul class="navbar-nav">
+			 <li style="padding: 5px;">
+				 <a class="btn btn-light button1" href="{% url 'home:detail' tournament_id %}">Info</a>
+			 </li>
+
+			 <li style="padding: 5px;">
+				 <a class="btn btn-light button1" href="{% url 'home:participants' tournament_id %}">Participants</a>
+			 </li>
+
+			 <li style="padding: 5px;">
+				 <a class="btn btn-light button1" href="{% url 'home:rounds' tournament_id %}">Rounds</a>
+			 </li>
+
+			 <li style="padding: 5px;">
+				 <a class="btn btn-light button1" href="{% url 'home:motions' tournament_id %}">Motions</a>
+			 </li>
+
+			 <li style="padding: 5px;">
+				 <a class="btn btn-light button1" href="{% url 'home:settings' tournament_id %}">Settings</a>
+			 </li>
+
+			 <div class="dropdown" style="padding: 5px;">
+				 <a class="btn btn-light button1" href="{% url 'home:detail' tournament_id %}">Standings</a>
+				 <div class="dropdown-content">
+					 <li class=""><a href="{% url 'home:team_standings' tournament_id %}">Team Standings</a></li>
+					 <li class=""><a href="{% url 'home:adjudicator_standings' tournament_id %}">Adjudicator Standings</a></li>
+				 </div>
+			 </div>
+
+			 <li style="padding: 5px;">
+				 <a class="btn btn-light button1" href="{% url 'home:breaks' tournament_id %}">Breaks</a>
+			 </li>
+
+			 <li style="padding: 5px;">
+				 <a class="btn btn-light button1" href="{% url 'home:breakrounds' tournament_id %}">Break Rounds</a>
+			 </li>
+			 <li style="padding: 5px; float:right;">
+				 <form class="navbar-form" action="{% url 'home:logout' %}" method="post">
+					 {% csrf_token %}
+					 <button class="btn btn-light button1" style="font-family: 'Audiowide';" type="submit">
+						 Logout <i class="fas fa-sign-out-alt"></i>
+					 </button>
+				 </form>
+			 </li>
+		 </ul>
+    </nav>
+{% block body %}
+{% endblock %}
+</body>
+</html>

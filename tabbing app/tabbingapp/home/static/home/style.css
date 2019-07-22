@@ -1,0 +1,12 @@
+body {
+  background: url("images/background1.jpeg" no-repeat center center fixed;
+}
+
+.navbar{
+    border-radius: 0;
+}
+
+.navbar-brand{
+    font-family: 'Cinzel', cursive;
+}
+
