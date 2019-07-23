@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    {% load staticfiles %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style.css' %}"/>
+    <link href='https://fonts.googleapis.com/css?family=Calligraffitti' rel='stylesheet'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+    <style>
+        .button1:hover {
+          box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+    </style>
+</head>
+
+{% block content %}
+
+<br><br>
+    <h1 style="font-family: 'Calligraffitti'; font-weight: bold; color: brown;"><big><center>Register</center></big></h1>
+    <br>
+    <div class="container-fluid">
+         <div class="row">
+             <div class="col-sm-12 col-md-7">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form class="site-form" action="{% url 'home:signup' %}" method="post">
+                            {% csrf_token %}
+                            {{ form }}
+                            <center><br><input class="btn btn-success btn-lg button1" style="font-family: 'Calligraffitti'; font-weight: bold; padding: 10px 100px;" type="submit" value="Register"></center>
+                        </form>
+                    </div>
+                </div>
+             </div>
+         </div>
+     </div>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'home/base.html' %}
+
+{% block title %}Tournament Details{% endblock %}
+
+{% block body %}
+<br><br><br><br><br>
+<div class="container-fluid">
+         <div class="row">
+             <div class="col-sm-11 col-md-7">
+                <div class="panel" style="background-color:rgb(59, 0, 81); border-radius: 30px; width: 1000px; position: absolute; left: 270px;">
+                    <div class="panel-body" style="background-color:rgb(59, 0, 81); border-radius: 25px; width: 1000px;">
+                 <br><center>
+                        <h1 style="color: White; font-family: 'Calligraffitti'; margin-left: 10px;"><big><b>{{ tournament.tournament_name }}</b></big></h1>
+                        <h2 style="color: White; font-family: 'Calligraffitti'; margin-left: 10px;">Dates : {{ tournament.dates }}</h2>
+                        <h2 style="color: White; font-family: 'Calligraffitti'; margin-left: 10px;">Speaker Score Range : {{ tournament.speaker_score_range }}</h2>
+                        <h2 style="color: White; font-family: 'Calligraffitti'; margin-left: 10px;">Adjudicator Score Range : {{ tournament.adjudicator_score_range }}</h2>
+                        <h2 style="color: White; font-family: 'Calligraffitti'; margin-left: 10px;">Number of Rounds : {{ tournament.number_of_rounds }}</h2>
+                        <h2 style="color: White; font-family: 'Calligraffitti'; margin-left: 10px;">Number of Break Rounds : {{ tournament.number_of_break_rounds }}</h2>
+                        <h2 style="color: White; font-family: 'Calligraffitti'; margin-left: 10px;">Venue : {{ tournament.tournament_venue }}</h2>
+                    </center><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+{% endblock %}

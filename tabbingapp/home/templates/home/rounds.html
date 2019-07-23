@@ -1,0 +1,31 @@
+{% extends 'home/base.html' %}
+
+{% block title %}Rounds{% endblock %}
+
+{% block body %}
+<br>
+<h2><center><a class="btn btn-dark button1" style="padding: 20px 50px; font-family: 'Audiowide';" href="{% url 'home:add-rounds' pk=tournament_id %}">Add Rounds <i class='fas fa-plus'></i></a></center></h2>
+<ul>
+    <div class="container">
+        <div class="card-columns">
+            {% for round in all_rounds %}
+                <div class="card" style="width: 350px; background-color:rgb(59, 0, 81); border-radius: 30px;">
+                    <div class="card-body"><center>
+                        <h1 class="card-title" style="color: White; font-family: 'Calligraffitti';"><b>{{ round.name }}</b></h1>
+                        <h3 style="color: White; font-family: 'Calligraffitti';">Motion : {{ round.motion }}</h3>
+                        <h3 style="color: White; font-family: 'Calligraffitti';">Number of Teams : {{ round.number_of_teams }}</h3>
+                        <h3 style="color: White; font-family: 'Calligraffitti';">Number of Adjudicators : {{ round.number_of_adjudicators }}</h3>
+                        <h3 style="color: White; font-family: 'Calligraffitti';">Number of Rooms : {{ round.number_of_rooms }}</h3>
+                    </center></div>
+                </div>
+            {% for room in round.room_set.all %}
+            <h2> Room {{ room }}</h2>
+            <li><h3>Teams : {{ room.team1 }}  {{ room.team3 }}  {{ room.team2 }}  {{ room.team4 }}</h3></li>
+            <li><h3>Adjudicators : {{ room.adjudicators }}</h3></li>
+            {% endfor %}
+
+            {% endfor %}
+        </div>
+    </div>
+</ul>
+{% endblock %}

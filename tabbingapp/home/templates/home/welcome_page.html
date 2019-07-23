@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome Page{% endblock %}</title>
+    {% load staticfiles %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style.css' %}"/>
+    <link href='https://fonts.googleapis.com/css?family=Sail' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Charmonman' rel='stylesheet'>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+    <style>
+        .button1:hover {
+          box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+    </style>
+</head>
+<body>
+<div style="background-color: white;">
+    <h1 style="font-family: 'Sail'; font-size: 70px; color: brown;"><center><big><i>Welcome to the Tabbing App</i></big></center></h1>
+</div>
+<div>
+    <a class="btn btn-success button1" style="position: absolute; top: 20%; left: 40%; padding: 10px 100px; font-family: 'Charmonman'; font-size: 20px;" href="{% url 'home:login' %}"><b>Login</b></a><br><br>
+    <a class="btn btn-success button1" style="position: absolute; top: 27.5%; left: 39.3%; padding: 10px 100px; font-family: 'Charmonman'; font-size: 20px;" href="{% url 'home:signup' %}"><b>Register</b></a>
+</div>
+</body>
+</html>
